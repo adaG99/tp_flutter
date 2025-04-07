@@ -8,7 +8,8 @@ class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Produits')),
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(title: Text('Produits'), backgroundColor: Colors.teal),
       body: Consumer<ProductViewModel>(
         builder: (context, vm, child) {
           if (vm.loading) {
@@ -16,13 +17,11 @@ class ProductListScreen extends StatelessWidget {
           }
 
           return ListView.builder(
+            padding: EdgeInsets.all(12),
             itemCount: vm.products.length,
             itemBuilder: (context, index) {
               final product = vm.products[index];
-              return ListTile(
-                leading: Image.network(product.image, height: 50),
-                title: Text(product.title),
-                subtitle: Text('${product.price}€'),
+              return GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
@@ -31,6 +30,55 @@ class ProductListScreen extends StatelessWidget {
                     ),
                   );
                 },
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  margin: EdgeInsets.symmetric(vertical: 8),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.network(
+                            product.image,
+                            height: 80,
+                            width: 80,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                product.title,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+                                '${product.price.toStringAsFixed(2)} €',
+                                style: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               );
             },
           );
