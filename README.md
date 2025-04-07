@@ -1,16 +1,14 @@
-# tp_flutter
+TP_FLUTTER fait par GUEYE Adama IW5
 
-A new Flutter project.
+Réponses aux questions :
+Pourquoi utiliser un constructeur factory ?
+On utilise un constructeur factory pour faciliter la création d’instances à partir de sources externes comme des données JSON, en personnalisant la logique de construction de l’objet.
 
-## Getting Started
+Pourquoi utiliser notifyListeners() ?
+on utilise notifyListeners pour avertir les widgets à l’écoute que les données ont changé, afin qu’ils puissent se reconstruire automatiquement et refléter l’état mis à jour.
 
-This project is a starting point for a Flutter application.
+Que se passe-t-il si on oublie d’appeler notifyListeners() ?
+L’interface utilisateur ne sera pas informée des changements de données, donc elle ne se mettra pas à jour même si l’état interne a évolué.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Quelle est la responsabilité d’un ViewModel ?
+ Il sert d’intermédiaire entre la logique métier (services, gestion des données) et l’interface utilisateur. Il ne contient pas de code UI, mais expose un état et des actions que la vue peut utiliser.
