@@ -1,6 +1,6 @@
 TP_FLUTTER fait par GUEYE Adama IW5
 
-Réponses aux questions :
+Réponses aux questions du TP :
 Pourquoi utiliser un constructeur factory ?
 On utilise un constructeur factory pour faciliter la création d’instances à partir de sources externes comme des données JSON, en personnalisant la logique de construction de l’objet.
 
