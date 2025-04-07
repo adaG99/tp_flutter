@@ -1,4 +1,4 @@
-TP_FLUTTER fait par GUEYE Adama IW5
+TP_FLUTTER fait par GUEYE Adama 
 
 Réponses aux questions du TP :
 Pourquoi utiliser un constructeur factory ?
